@@ -4,5 +4,8 @@
   "main": "index.ios.js",
   "author": "Rokas Milasevicius <rokas@milasevicius.com> (http://milasevicius.com)",
   "repository": "milasevicius/react-native-timepicker",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react-native-picker-android": "^0.3.8"
+  }
 }

@@ -5,8 +5,12 @@ import {
 	AppRegistry,
 	View,
 	PickerIOS,
-	StyleSheet
+	StyleSheet,
+	Platform
 } from 'react-native';
+import PickerAndroid from 'react-native-picker-android';
+
+let Picker = Platform.OS === 'ios' ? PickerIOS : PickerAndroid;
 
 export default class TimePicker extends Component {
 	constructor(props) {
@@ -83,27 +87,27 @@ export default class TimePicker extends Component {
 	render() {
 		let hours = [];
 		for (let hour of this._hours) {
-			hours.push(<PickerIOS.Item key={hour} value={hour} label={this._getHourValue(hour).toString()}/>);
+			hours.push(<Picker.Item key={hour} value={hour} label={this._getHourValue(hour).toString()}/>);
 		}
 
 		let minutes = [];
 		for (let minute of this._minutes) {
-			minutes.push(<PickerIOS.Item key={minute} value={minute} label={this._getMinuteValue(minute).toString()}/>);
+			minutes.push(<Picker.Item key={minute} value={minute} label={this._getMinuteValue(minute).toString()}/>);
 		}
 
 		return (
 			<View style={[styles.container, this.props.style]}>
-				<PickerIOS style={styles.picker}
+				<Picker style={styles.picker}
 				           selectedValue={this.state.selectedHour}
 				           onValueChange={this._setHour}>
 					{hours}
-				</PickerIOS>
+				</Picker>
 
-				<PickerIOS style={styles.picker}
+				<Picker style={styles.picker}
 				           selectedValue={this.state.selectedMinute}
 				           onValueChange={this._setMinute}>
 					{minutes}
-				</PickerIOS>
+				</Picker>
 			</View>
 		);
 	}
