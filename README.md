@@ -78,5 +78,5 @@ AppRegistry.registerComponent('App', () => App);
 | onValueChange | `hour`, `minute` | `function` | onValueChange method is called when hours or minutes value was changed |
 
 ### Troubleshooting
-Android
+##### Android
 if 0.14.2 <= react-native <=0.24 you need react-native-picker-android@0.3.8
